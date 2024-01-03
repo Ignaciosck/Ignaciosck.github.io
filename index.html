@@ -7,7 +7,12 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+<div>
   <canvas id="radarChart" width="400" height="400"></canvas>
+  </div>
+  <div>
+    <canvas id="lineChart" width="400" height="400"></canvas>
+</div>
 
   <script>
     const data = {
@@ -74,8 +79,25 @@
         }
       }
     };
+	const config2 = {
+      type: 'bar',
+      data: data,
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        scale: {
+          ticks: {
+            stepSize: 1,
+            max: 3,
+            min: 0
+          }
+        }
+      }
+    };
 
     var myRadarChart = new Chart(document.getElementById('radarChart'), config);
+	var myLineChart = new Chart(document.getElementById('lineChart'), config2);
+
   </script>
 </body>
 </html>
