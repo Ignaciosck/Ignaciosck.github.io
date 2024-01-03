@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Radar Chart</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
-  <canvas id="radarChart" width="400" height="400"></canvas>
+  <div>
+    <canvas id="radarChart" width="400" height="400"></canvas>
+  </div>
+  <div>
+    <canvas id="lineChart" width="400" height="400"></canvas>
+  </div>
 
   <script>
     const data = {
@@ -28,8 +35,8 @@
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgb(255, 99, 132)',
-		spanGaps: true,
-        lineTension: 0.1	
+        spanGaps: true,
+        lineTension: 0.1
       }, {
         label: 'Ignacio',
         data: [1, 1, 2, 2, 2, 1, 2, 2, 2, 2, 1, 1, 0, 1, 1, 2],
@@ -41,7 +48,7 @@
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgb(54, 162, 235)',
-		spanGaps: true,
+        spanGaps: true,
         lineTension: 0.1
       }, {
         label: 'Aurelio',
@@ -54,7 +61,7 @@
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgb(75, 192, 192)',
-		spanGaps: true,
+        spanGaps: true,
         lineTension: 0.1
       }]
     };
@@ -74,8 +81,26 @@
         }
       }
     };
+    const config2 = {
+      type: 'bar',
+      data: data,
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        scale: {
+          ticks: {
+            stepSize: 1,
+            max: 3,
+            min: 0
+          }
+        }
+      }
+    };
 
     var myRadarChart = new Chart(document.getElementById('radarChart'), config);
+    var myLineChart = new Chart(document.getElementById('lineChart'), config2);
+
   </script>
 </body>
+
 </html>
